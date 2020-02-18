@@ -17,7 +17,7 @@ formatter.step({
   "keyword": "Given "
 });
 formatter.match({
-  "location": "stepdefinition.SearchFlights.login_to_expedia_in_website()"
+  "location": "stepdefinition.SearchFlights_StepDefnition.login_to_expedia_in_website()"
 });
 formatter.result({
   "status": "passed"
@@ -32,17 +32,17 @@ formatter.step({
   "keyword": "When "
 });
 formatter.match({
-  "location": "stepdefinition.SearchFlights.click_on_flights_tab()"
+  "location": "stepdefinition.SearchFlights_StepDefnition.click_on_flights_tab()"
 });
 formatter.result({
   "status": "passed"
 });
 formatter.step({
-  "name": "user shou ld be able to get the options for searching flights",
+  "name": "user should be able to get the options for searching flights",
   "keyword": "Then "
 });
 formatter.match({
-  "location": "stepdefinition.SearchFlights.user_should_be_able_to_get_the_options_for_searching_flights()"
+  "location": "stepdefinition.SearchFlights_StepDefnition.user_should_be_able_to_get_the_options_for_searching_flights()"
 });
 formatter.result({
   "status": "passed"
@@ -63,7 +63,7 @@ formatter.step({
   "keyword": "Given "
 });
 formatter.match({
-  "location": "stepdefinition.SearchFlights.login_to_expedia_in_website()"
+  "location": "stepdefinition.SearchFlights_StepDefnition.login_to_expedia_in_website()"
 });
 formatter.result({
   "status": "passed"
@@ -78,7 +78,7 @@ formatter.step({
   "keyword": "Given "
 });
 formatter.match({
-  "location": "stepdefinition.SearchFlights.click_on_flights_tab()"
+  "location": "stepdefinition.SearchFlights_StepDefnition.click_on_flights_tab()"
 });
 formatter.result({
   "status": "passed"
@@ -88,7 +88,7 @@ formatter.step({
   "keyword": "And "
 });
 formatter.match({
-  "location": "stepdefinition.SearchFlights.select_oneway_trip_checkbox()"
+  "location": "stepdefinition.SearchFlights_StepDefnition.select_oneway_trip_checkbox()"
 });
 formatter.result({
   "status": "passed"
@@ -101,7 +101,7 @@ formatter.step({
   "keyword": "When "
 });
 formatter.match({
-  "location": "stepdefinition.SearchFlights.user_provides_Orgin_and_Destination_cities(io.cucumber.datatable.DataTable)"
+  "location": "stepdefinition.SearchFlights_StepDefnition.user_provides_Orgin_and_Destination_cities(io.cucumber.datatable.DataTable)"
 });
 formatter.result({
   "status": "passed"
@@ -111,7 +111,7 @@ formatter.step({
   "keyword": "And "
 });
 formatter.match({
-  "location": "stepdefinition.SearchFlights.user_provides_departure_date(java.lang.String)"
+  "location": "stepdefinition.SearchFlights_StepDefnition.user_provides_departure_date(java.lang.String)"
 });
 formatter.result({
   "status": "passed"
@@ -121,7 +121,7 @@ formatter.step({
   "keyword": "And "
 });
 formatter.match({
-  "location": "stepdefinition.SearchFlights.user_click_submit()"
+  "location": "stepdefinition.SearchFlights_StepDefnition.user_click_submit()"
 });
 formatter.result({
   "status": "passed"
@@ -131,7 +131,7 @@ formatter.step({
   "keyword": "Then "
 });
 formatter.match({
-  "location": "stepdefinition.SearchFlights.user_should_be_able_to_navigate_to_search_results_page()"
+  "location": "stepdefinition.SearchFlights_StepDefnition.user_should_be_able_to_navigate_to_search_results_page()"
 });
 formatter.result({
   "status": "passed"
