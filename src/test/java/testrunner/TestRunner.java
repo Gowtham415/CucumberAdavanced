@@ -6,7 +6,7 @@ import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(features = "src\\test\\java\\features\\",
 				glue = {"stepdefinition"},
-				plugin = {"pretty", "html:test-output"},
+				plugin = {"pretty", "html:target\\Cucumber-report","json:target\\jsonReports\\cucumber.json"},
 				dryRun = false,
 				monochrome = true,
 				strict = true,

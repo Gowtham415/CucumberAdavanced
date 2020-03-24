@@ -44,11 +44,6 @@ public class SearchFlights_StepDefnition {
 		Assert.assertTrue(true);
 	}
 
-	@After
-	public void tearDown() {
-		driver.close();
-	}
-
 	@Given("select oneway trip checkbox")
 	public void select_oneway_trip_checkbox() {
 		page.getInstance(HomePage.class).toggleOneWayTrip();
@@ -79,6 +74,11 @@ public class SearchFlights_StepDefnition {
 	@Then("User should be able to navigate to search results page")
 	public void user_should_be_able_to_navigate_to_search_results_page() {
 		Assert.assertTrue(true);
+	}
+	
+	@After
+	public void tearDown() {
+		driver.close();
 	}
 
 }
