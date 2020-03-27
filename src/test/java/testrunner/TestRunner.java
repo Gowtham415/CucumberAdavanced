@@ -10,8 +10,8 @@ import io.cucumber.testng.CucumberOptions;
 				dryRun = false,
 				monochrome = true,
 				strict = true,
-				tags = {})
+				tags = {"@SMOKE"})
 
 public class TestRunner extends AbstractTestNGCucumberTests{
-
+	
 }

@@ -1,6 +1,7 @@
 package PageObjects;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 
@@ -12,8 +13,12 @@ public class HomePage extends BasePage {
 
 	String originCityId = "flight-origin-hp-flight";
 	String destinationCityID = "flight-destination-hp-flight";
-	String searchFlightBtnXpath = "//section[@id='section-flight-tab-hp']//button[@type='submit']";
 	String departureDateSingleID = "flight-departing-single-hp-flight";
+	String departureDateRoundTripID = "flight-departing-hp-flight";
+	String returnDateID = "flight-returning-hp-flight";
+	String searchFlightBtnXpath = "//section[@id='section-flight-tab-hp']//button[@type='submit']";
+	
+	
 	public void clickFlightstab() {
 		waitUntilElementisVisible(By.id("tab-flight-tab-hp")).click();
 	}
@@ -36,10 +41,27 @@ public class HomePage extends BasePage {
 	public void setDepartureDate(String date) {
 		waitUntilElementisVisible(By.id(departureDateSingleID)).clear();
 		waitUntilElementisVisible(By.id(departureDateSingleID)).sendKeys(date);
+		clickFlightstab();// To ensure other elements are visible
+		
+	}
+	
+	public void setDepartureDateforRoundTrip(String date) {
+		waitUntilElementisVisible(By.id(departureDateRoundTripID)).click();
+		waitUntilElementisVisible(By.id(departureDateRoundTripID)).sendKeys(date);
+		clickFlightstab();// To ensure other elements are visible
+	}
+	
+	public void setReturnDate(String date) {
+		waitUntilElementisVisible(By.id(returnDateID)).click();
+		waitUntilElementisVisible(By.id(returnDateID)).sendKeys(Keys.CONTROL+"a"+Keys.DELETE);
+		waitUntilElementisVisible(By.id(returnDateID)).sendKeys(date);
+		clickFlightstab();// To ensure other elements are visible
 	}
 
 	public void clickSearchFlights() {
-		WebElement e = waitUntilElementisClickable(By.xpath(searchFlightBtnXpath));
+		WebElement e = waitUntilElementisVisible(By.xpath(searchFlightBtnXpath));
 		action.moveToElement(e).click().build().perform();
 	}
+	
+	
 }
