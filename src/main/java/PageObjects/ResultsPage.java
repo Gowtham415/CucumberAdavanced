@@ -9,8 +9,8 @@ public class ResultsPage extends BasePage {
 		super(driver);
 	}
 	
-	public boolean getTitleOfPage() {
-		return driverWait.until(ExpectedConditions.titleContains("Flights | Expedia"));
+	public boolean titleContains(String title) {
+		return driverWait.until(ExpectedConditions.titleContains(title));
 	}
 
 }
