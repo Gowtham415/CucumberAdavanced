@@ -81,4 +81,9 @@ public class SearchFlights_StepDefnition{
 		Assert.assertTrue(varData.page.getInstance(ResultsPage.class).titleContains("Flights | Expedia"));
 	}
 	
+	@When("User selects multiple adults with children")
+	public void user_selects_multiple_adults_with_children() {
+		varData.page.getInstance(HomePage.class).setAdultsAndChildren(3, 2);
+	}
+	
 }

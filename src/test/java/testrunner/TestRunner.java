@@ -10,7 +10,7 @@ import io.cucumber.testng.CucumberOptions;
 				dryRun = false,
 				monochrome = true,
 				strict = true,
-				tags = {"@SMOKE"})
+				tags = {"@SMOKE or @FULLRUN"})
 
 public class TestRunner extends AbstractTestNGCucumberTests{
 	
