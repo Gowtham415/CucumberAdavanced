@@ -39,7 +39,20 @@ Scenario: user is able to search flights for adults with children for one way tr
 	And select oneway trip checkbox 
 	When user provides Orgin and Destination cities 
 			|Hyderabad|Bangalore|
-	And User provides departure date "30/03/2020" 
+	And User provides departure date "30/04/2020" 
 	And User selects multiple adults with children 
 	And User click submit 
 	Then User should be able to navigate to search results page
+
+@FULLRUN 
+Scenario: user is able to search for a business class ticket for oneway trip in Air India
+	Given click on flights tab 
+	And select oneway trip checkbox 
+	When user provides Orgin and Destination cities 
+			|Hyderabad|Bangalore|
+	And User provides departure date "30/04/2020"
+	And User sets the preferred Airline as "Air India"
+	And User sets preferred class as "Business"
+	And User click submit
+	Then User should be able to navigate to search results page 
+	

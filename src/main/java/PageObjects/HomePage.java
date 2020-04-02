@@ -106,5 +106,27 @@ public class HomePage extends BasePage {
 		
 		clickFlightstab();// To ensure other elements are visible
 	}
+	
+	
+	public void setPreferredAirLine(String preferredAirline) {
+		String advancedOptionsID="flight-advanced-options-hp-flight";
+		driver.findElement(By.id(advancedOptionsID)).click();
+		sleep(1);
+		String preferredAirLineID="flight-advanced-preferred-airline-hp-flight";
+		Select selectAirline = new Select(driver.findElement(By.id(preferredAirLineID)));
+		selectAirline.selectByVisibleText(preferredAirline);
+		driver.findElement(By.id(advancedOptionsID)).click();
+	}
+	
+	public void setPreferredClass(String preferredClass) {
+		String advancedOptionsID="flight-advanced-options-hp-flight";
+		driver.findElement(By.id(advancedOptionsID)).click();
+		sleep(1);
+		String preferredClassID="flight-advanced-preferred-class-hp-flight";
+		Select selectAirline = new Select(driver.findElement(By.id(preferredClassID)));
+		selectAirline.selectByVisibleText(preferredClass);
+		sleep(1);
+		driver.findElement(By.id(advancedOptionsID)).click();
+	}
 
 }

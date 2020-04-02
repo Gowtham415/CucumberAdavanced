@@ -86,4 +86,14 @@ public class SearchFlights_StepDefnition{
 		varData.page.getInstance(HomePage.class).setAdultsAndChildren(3, 2);
 	}
 	
+	@When("User sets the preferred Airline as {string}")
+	public void user_sets_the_preferred_Airline_as(String airline) {
+		varData.page.getInstance(HomePage.class).setPreferredAirLine("Air India");		
+	}
+
+	@When("User sets preferred class as {string}")
+	public void user_sets_preferred_class_as(String string) {
+		varData.page.getInstance(HomePage.class).setPreferredClass("Business");
+	}
+	
 }
