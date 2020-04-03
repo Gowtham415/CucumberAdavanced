@@ -12,5 +12,5 @@ public class ResultsPage extends BasePage {
 	public boolean titleContains(String title) {
 		return driverWait.until(ExpectedConditions.titleContains(title));
 	}
-
+	
 }

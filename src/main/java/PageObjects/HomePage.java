@@ -128,5 +128,34 @@ public class HomePage extends BasePage {
 		sleep(1);
 		driver.findElement(By.id(advancedOptionsID)).click();
 	}
+	
+	public void clickHotelsTab() {
+		waitUntilElementisVisible(By.id("tab-hotel-tab-hp")).click();
+		driver.findElement(By.id("hotel-destination-hp-hotel"));
+	}
+	
+	public void setDestinationCityForHotels(String city) {
+		driver.findElement(By.id("hotel-destination-hp-hotel")).sendKeys(city);
+	}
+	
+	public void setCheckInDateForHotel(String checkIn) {
+		WebElement checkInElement = driver.findElement(By.id("hotel-checkin-hp-hotel"));
+		checkInElement.sendKeys(checkIn);
+	}
+	
+	public void setCheckOutDateForHotel(String checkOut) {
+		WebElement checkOutElement = driver.findElement(By.id("hotel-checkout-hp-hotel"));
+		checkOutElement.sendKeys(checkOut);
+	}
+	
+	public void clickOnHotelSearch() {
+		waitUntilElementisClickable(By.xpath("//section[@id='section-hotel-tab-hp']//span[contains(text(),'Search')]//parent::button")).click();
+	}
+	
+	public void AddFlightsWithHotel(String city) {
+		driver.findElement(By.id("hotel-add-flight-checkbox-hp-hotel")).click();
+		driver.findElement(By.id("hotel-flight-origin-hp-hotel")).sendKeys(city);
+		clickHotelsTab();// To avoid this obstructing other webElements
+	}
 
 }

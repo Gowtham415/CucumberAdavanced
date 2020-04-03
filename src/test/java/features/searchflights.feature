@@ -15,7 +15,7 @@ Scenario: User is able to search flights for one way trip
 	And select oneway trip checkbox 
 	When user provides Orgin and Destination cities 
 		|Hyderabad|Bangalore|
-	And User provides departure date "30/03/2020" 
+	And User provides departure date "30/04/2020" 
 	And User click submit 
 	Then User should be able to navigate to search results page 
 	
@@ -23,7 +23,7 @@ Scenario: User is able to search flights for one way trip
 Scenario Outline: User is able to search flights for round trip 
 	Given click on flights tab 
 	When User provides Origin "<origin>" and Destination "<destination>" cities for round trip 
-	And User provides departure date "30/03/2020" and return date "04/04/2020" for round trip 
+	And User provides departure date "30/04/2020" and return date "04/05/2020" for round trip 
 	And User click submit 
 	Then User should be able to navigate to search results page 
 	
@@ -39,7 +39,7 @@ Scenario: user is able to search flights for adults with children for one way tr
 	And select oneway trip checkbox 
 	When user provides Orgin and Destination cities 
 			|Hyderabad|Bangalore|
-	And User provides departure date "30/04/2020" 
+	And User provides departure date "04/05/2020" 
 	And User selects multiple adults with children 
 	And User click submit 
 	Then User should be able to navigate to search results page
@@ -50,9 +50,11 @@ Scenario: user is able to search for a business class ticket for oneway trip in 
 	And select oneway trip checkbox 
 	When user provides Orgin and Destination cities 
 			|Hyderabad|Bangalore|
-	And User provides departure date "30/04/2020"
+	And User provides departure date "04/05/2020"
 	And User sets the preferred Airline as "Air India"
 	And User sets preferred class as "Business"
 	And User click submit
 	Then User should be able to navigate to search results page 
+
+
 	
