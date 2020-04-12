@@ -105,5 +105,26 @@ Scenario: Verify if error message is received if more than six members are selec
 	And User click submit 
 	Then Error message saying more than six members are not allowed should be displayed
 	
+@TESTRUN
+Scenario: Verify if user is able to select hotels while searching for one-way flights
+	Given click on flights tab 
+	And select oneway trip checkbox 
+	When user provides Orgin and Destination cities 
+			|Hyderabad|Bangalore|
+	And User provides departure date "04/05/2020"
+	And User selects the hotels option with checkin "04/05/2020" and checkout date "05/05/2020"
+	And User click submit 
+	Then User should be able to navigate to search results page with flights and hotels
+
+@SMOKE @FULLRUN
+Scenario: Verify if user is able to select hotels while searching for round trip flights
+	Given click on flights tab
+	When User provides Origin "Hyderabad" and Destination "New Delhi" cities for round trip
+	And User provides departure date "30/04/2020" and return date "04/05/2020" for round trip
+	And User selects the hotels option with checkin "01/05/2020" and checkout date "04/05/2020"
+	And User click submit
+	Then User should be able to navigate to search results page with flights and hotels
 	
+
 	
+

@@ -214,4 +214,14 @@ public class HomePage extends BasePage {
 		}	
 	}
 
+	public void selectHotelsAlongWithFlights(String checkin, String checkOut) {
+		sleep(1);
+		driver.findElement(By.id("flight-add-hotel-checkbox-hp-flight")).click();
+		driver.findElement(By.id("flight-hotel-checkin-hp-flight")).sendKeys(Keys.CONTROL+"a"+Keys.DELETE);
+		driver.findElement(By.id("flight-hotel-checkin-hp-flight")).sendKeys(checkin);
+		driver.findElement(By.id("flight-hotel-checkout-hp-flight")).sendKeys(Keys.CONTROL+"a"+Keys.DELETE);
+		driver.findElement(By.id("flight-hotel-checkout-hp-flight")).sendKeys(checkOut);
+		clickFlightstab();
+	}
+
 }

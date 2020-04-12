@@ -2,7 +2,6 @@ package stepdefinition;
 
 import java.util.List;
 
-import org.openqa.selenium.WebDriver;
 import org.testng.Assert;
 
 import PageObjects.HomePage;
@@ -81,6 +80,11 @@ public class SearchFlights_StepDefnition{
 		Assert.assertTrue(varData.page.getInstance(ResultsPage.class).titleContains("Flights | Expedia"));
 	}
 	
+	@Then("User should be able to navigate to search results page with flights and hotels")
+	public void user_should_be_able_to_navigate_to_search_results_page_with_flights_and_hotels() {
+		Assert.assertTrue(varData.page.getInstance(ResultsPage.class).titleContains("Hotel Search Results | Expedia"));
+	}
+	
 	@When("User selects multiple adults with children")
 	public void user_selects_multiple_adults_with_children() {
 		varData.page.getInstance(HomePage.class).setAdultsAndChildren(3, 2);
@@ -108,6 +112,11 @@ public class SearchFlights_StepDefnition{
 	public void error_message_saying_more_than_six_members_are_not_allowed_should_be_displayed() {
 		Boolean isErrorPresent = varData.page.getInstance(HomePage.class).errorMessageIfMorethanSixPassengersAreSelected();
 		Assert.assertTrue(isErrorPresent);
+	}
+	
+	@When("User selects the hotels option with checkin {string} and checkout date {string}")
+	public void user_selects_the_hotels_option_with_checkin_and_checkout_date(String checkInDate, String checkOutDate) {
+		varData.page.getInstance(HomePage.class).selectHotelsAlongWithFlights(checkInDate, checkOutDate);
 	}
 	
 }
