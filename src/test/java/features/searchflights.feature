@@ -31,7 +31,6 @@ Scenario Outline: User is able to search flights for round trip
 		|origin|destination|
 		|Hyderabad|Bangalore|
 		|New Delhi|Bangalore|
-		|Chennai|Mumbai|
 		
 @FULLRUN 
 Scenario: user is able to search flights for adults with children for one way trip 
@@ -56,5 +55,55 @@ Scenario: user is able to search for a business class ticket for oneway trip in 
 	And User click submit
 	Then User should be able to navigate to search results page 
 
+@FULLRUN
+Scenario: Verify if user is able to search for business class flight for roundtrip in a specific air liner
+	Given click on flights tab
+	When User provides Origin "Hyderabad" and Destination "New Delhi" cities for round trip
+	And User provides departure date "30/04/2020" and return date "04/05/2020" for round trip
+	And User sets the preferred Airline as "Air India"
+	And User sets preferred class as "Business"
+	And User click submit
+	Then User should be able to navigate to search results page
 
+@FULLRUN
+Scenario: Verify if the user is able to search for one-way flight with adults, children and infants.
+	Given click on flights tab 
+	And select oneway trip checkbox 
+	When user provides Orgin and Destination cities 
+			|Hyderabad|Bangalore|
+	And User provides departure date "04/05/2020"
+	And User select adults "2" , children "2" and infants "2"
+	And User click submit 
+	Then User should be able to navigate to search results page
+
+@FULLRUN
+Scenario: Verify if the user is able to searhc for round trip flight with adults, children and infants.
+	Given click on flights tab
+	When User provides Origin "Hyderabad" and Destination "New Delhi" cities for round trip
+	And User provides departure date "30/04/2020" and return date "04/05/2020" for round trip
+	And User select adults "2" , children "2" and infants "2"
+	And User click submit 
+	Then User should be able to navigate to search results page
+
+@FULLRUN
+Scenario: Verify if error message is received if more than six members are selected in searching a flight for one way trip
+	Given click on flights tab 
+	And select oneway trip checkbox 
+	When user provides Orgin and Destination cities 
+			|Hyderabad|Bangalore|
+	And User provides departure date "04/05/2020"
+	And User select adults "3" , children "3" and infants "2"
+	And User click submit 
+	Then Error message saying more than six members are not allowed should be displayed
+	
+@FULLRUN
+Scenario: Verify if error message is received if more than six members are selected in searching a flight for round trip
+	Given click on flights tab
+	When User provides Origin "Hyderabad" and Destination "New Delhi" cities for round trip
+	And User provides departure date "30/04/2020" and return date "04/05/2020" for round trip
+	And User select adults "3" , children "3" and infants "2"
+	And User click submit 
+	Then Error message saying more than six members are not allowed should be displayed
+	
+	
 	

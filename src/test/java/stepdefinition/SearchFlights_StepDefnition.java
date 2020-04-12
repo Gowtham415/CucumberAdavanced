@@ -86,6 +86,14 @@ public class SearchFlights_StepDefnition{
 		varData.page.getInstance(HomePage.class).setAdultsAndChildren(3, 2);
 	}
 	
+	@When("User select adults {string} , children {string} and infants {string}")
+	public void user_select_adults_children_and_infants(String adults, String children, String infants) {
+		int intAdults = Integer.parseInt(adults);
+		int intChildren = Integer.parseInt(children);
+		int intInfants = Integer.parseInt(infants);
+		varData.page.getInstance(HomePage.class).setAdultsChildrenInfants(intAdults, intChildren,intInfants);
+	}
+	
 	@When("User sets the preferred Airline as {string}")
 	public void user_sets_the_preferred_Airline_as(String airline) {
 		varData.page.getInstance(HomePage.class).setPreferredAirLine("Air India");		
@@ -94,6 +102,12 @@ public class SearchFlights_StepDefnition{
 	@When("User sets preferred class as {string}")
 	public void user_sets_preferred_class_as(String string) {
 		varData.page.getInstance(HomePage.class).setPreferredClass("Business");
+	}
+	
+	@Then("Error message saying more than six members are not allowed should be displayed")
+	public void error_message_saying_more_than_six_members_are_not_allowed_should_be_displayed() {
+		Boolean isErrorPresent = varData.page.getInstance(HomePage.class).errorMessageIfMorethanSixPassengersAreSelected();
+		Assert.assertTrue(isErrorPresent);
 	}
 	
 }

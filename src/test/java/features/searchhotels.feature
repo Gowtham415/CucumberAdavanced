@@ -4,8 +4,8 @@ Feature: Search Hotels
 Background: 
 	Given login to expedia.in website
 	
-@SMOKE
-Scenario: User is able to search for flights
+@SMOKE @FULLRUN 
+Scenario: User is able to search for Hotels
 	Given Click on Hotels tab
 	When User provides city to be searched for hotels
 		|Hyderabad|Bangalore|
@@ -15,7 +15,7 @@ Scenario: User is able to search for flights
 	Then User should be able to navigate to search results page for hotels
 	
 @FULLRUN 
-Scenario: User is able to search for flights
+Scenario: User is able to search for Hotels with flights
 	Given Click on Hotels tab
 	When User provides city to be searched for hotels
 		|Hyderabad|
@@ -25,3 +25,4 @@ Scenario: User is able to search for flights
 		|Bangalore| 
 	And User click on search hotel button
 	Then User should be able to navigate to search results page for hotels
+	

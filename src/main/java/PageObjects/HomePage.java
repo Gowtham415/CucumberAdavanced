@@ -73,8 +73,7 @@ public class HomePage extends BasePage {
 		sleep(1);
 		List<WebElement> elements = driver
 				.findElements(By.xpath("//*[@id='traveler-selector-hp-flight']//div[1]/div[4]/button"));
-
-		
+	
 		for (int k = 0; k <= elements.size(); k++) {
 			/*
 			 * Selecting the Adults based on adult count
@@ -85,7 +84,7 @@ public class HomePage extends BasePage {
 				}
 			}
 			/*
-			 * Selecting the Children based on adult count
+			 * Selecting the Children based on children count
 			 */
 			sleep(1);
 			if (k == 1) {
@@ -105,6 +104,54 @@ public class HomePage extends BasePage {
 		}
 		
 		clickFlightstab();// To ensure other elements are visible
+	}
+	
+	public void setAdultsChildrenInfants(int adults, int children, int infants) {
+		
+		waitUntilElementisVisible(By.xpath("//div[@id='traveler-selector-hp-flight']//li/button")).click();
+		sleep(1);
+		List<WebElement> elements = driver
+				.findElements(By.xpath("//*[@id='traveler-selector-hp-flight']//div[1]/div[4]/button"));
+		for (int k = 0; k <= elements.size(); k++) {
+			/*
+			 * Selecting the Adults based on adult count
+			 */
+			if (k == 0) {
+				for (int i = 0; i <= adults - 2; i++) {
+					elements.get(k).click();
+				}
+			}
+			/*
+			 * Selecting the Children based on children count
+			 */
+			sleep(1);
+			if (k == 1) {
+				for (int i = 0; i <= children - 1; i++) {
+					elements.get(k).click();
+				}			
+				// Selecting the Ages of Children				
+				for(int j=0;j<children;j++) {
+					sleep(1);
+					Select sel = new Select(driver.findElement(By.xpath("//div[@class='cols-nested children-data gcw-toggles-fields available-for-flights']//select[@id=\"flight-age-select-"+(j+1)+"-hp-flight\"]")));
+					sel.selectByValue("10");
+				}
+			}
+			/*
+			 * Selecting the Children based on children count
+			 */
+			if(k==2) {
+				for (int i = 0; i <= infants - 1; i++) {
+					elements.get(k).click();
+				}
+				// Selecting the Ages of Children				
+				for(int j=0;j<infants;j++) {
+					sleep(1);
+					Select sel = new Select(driver.findElement(By.xpath("//select[@class='gcw-storeable gcw-toggles-field-by-value gcw-child-age-select gcw-infant-age-"+(j+1)+"-sa']")));
+					sel.selectByValue("1");
+				}
+			}
+			
+		}
 	}
 	
 	
@@ -156,6 +203,15 @@ public class HomePage extends BasePage {
 		driver.findElement(By.id("hotel-add-flight-checkbox-hp-hotel")).click();
 		driver.findElement(By.id("hotel-flight-origin-hp-hotel")).sendKeys(city);
 		clickHotelsTab();// To avoid this obstructing other webElements
+	}
+	
+	public boolean errorMessageIfMorethanSixPassengersAreSelected() {
+		List<WebElement> errorElement= driver.findElements(By.xpath("//a[text()='We are only able to book between 1 and 6 travellers. Please adjust the number of travellers for your search.']"));
+		if(errorElement.size()>0) {
+			return errorElement.get(0).isDisplayed();
+		}else {
+			return false;
+		}	
 	}
 
 }
