@@ -9,6 +9,4 @@ public class DataVariableClass {
 	String title;
 	Page page;
 	String baseUrl = "https://www.expedia.co.in/";
-
-
 }

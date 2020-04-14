@@ -110,7 +110,7 @@ Scenario: Verify if user is able to select hotels while searching for one-way fl
 	Given click on flights tab 
 	And select oneway trip checkbox 
 	When user provides Orgin and Destination cities 
-			|Hyderabad|Bangalore|
+			|Hyderabad|Kolkata|
 	And User provides departure date "04/05/2020"
 	And User selects the hotels option with checkin "04/05/2020" and checkout date "05/05/2020"
 	And User click submit 
