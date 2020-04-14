@@ -105,7 +105,7 @@ Scenario: Verify if error message is received if more than six members are selec
 	And User click submit 
 	Then Error message saying more than six members are not allowed should be displayed
 	
-@TESTRUN
+@FULLRUN
 Scenario: Verify if user is able to select hotels while searching for one-way flights
 	Given click on flights tab 
 	And select oneway trip checkbox 
