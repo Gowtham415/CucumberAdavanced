@@ -14,21 +14,21 @@ import io.cucumber.java.en.When;
 public class SearchFlights_StepDefnition{
 	
 	WebDriver driver;
-	private DataVariableClass varData;
+	private DataVariableClass COMMON_DATA;
 	
-	public SearchFlights_StepDefnition(DataVariableClass varData) {
-		this.varData=varData;
-		this.driver=varData.driver;
+	public SearchFlights_StepDefnition(DataVariableClass data) {
+		this.COMMON_DATA=data;
+		this.driver=data.driver;
 	}
 	
 	private ObjectsPage selenium() {
-		return varData.selenium();
+		return COMMON_DATA.selenium();
 	}
 
 	@Given("login to expedia.in website")
 	public void login_to_expedia_in_website() {
-		driver.get(varData.baseUrl);
-		varData.title = driver.getTitle();
+		driver.get(COMMON_DATA.baseUrl);
+		COMMON_DATA.title = driver.getTitle();
 	}
 
 	@When("click on flights tab")

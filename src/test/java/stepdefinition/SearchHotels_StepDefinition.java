@@ -12,16 +12,16 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
 public class SearchHotels_StepDefinition {
-	private DataVariableClass varData;
+	private DataVariableClass COMMON_DATA;
 	WebDriver driver;
 
-	public SearchHotels_StepDefinition(DataVariableClass varData) {
-		this.varData = varData;
-		this.driver=varData.driver;
+	public SearchHotels_StepDefinition(DataVariableClass data) {
+		this.COMMON_DATA = data;
+		this.driver = data.driver;
 	}
-	
+
 	private ObjectsPage selenium() {
-		return varData.selenium();
+		return COMMON_DATA.selenium();
 	}
 
 	@Given("Click on Hotels tab")
