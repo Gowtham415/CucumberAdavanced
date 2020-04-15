@@ -73,7 +73,7 @@ public class HomePage extends BasePage {
 		sleep(1);
 		List<WebElement> elements = driver
 				.findElements(By.xpath("//*[@id='traveler-selector-hp-flight']//div[1]/div[4]/button"));
-	
+
 		for (int k = 0; k <= elements.size(); k++) {
 			/*
 			 * Selecting the Adults based on adult count
@@ -91,23 +91,25 @@ public class HomePage extends BasePage {
 				for (int i = 0; i <= children - 1; i++) {
 					elements.get(k).click();
 				}
-				
+
 				// Selecting the Ages of Children
 				sleep(1);
-				Select sel = new Select(driver.findElement(By.xpath("//div[@class='cols-nested children-data gcw-toggles-fields available-for-flights']//select[@id=\"flight-age-select-1-hp-flight\"]")));
+				Select sel = new Select(driver.findElement(By.xpath(
+						"//div[@class='cols-nested children-data gcw-toggles-fields available-for-flights']//select[@id=\"flight-age-select-1-hp-flight\"]")));
 				sel.selectByValue("10");
-				
-				Select sel2 = new Select(driver.findElement(By.xpath("//div[@class='cols-nested children-data gcw-toggles-fields available-for-flights']//select[@id=\"flight-age-select-2-hp-flight\"]")));
+
+				Select sel2 = new Select(driver.findElement(By.xpath(
+						"//div[@class='cols-nested children-data gcw-toggles-fields available-for-flights']//select[@id=\"flight-age-select-2-hp-flight\"]")));
 				sel2.selectByValue("10");
 			}
-			
+
 		}
-		
+
 		clickFlightstab();// To ensure other elements are visible
 	}
-	
-	public void setAdultsChildrenInfants(int adults, int children, int infants) {
-		
+
+	public void setAdultsChildrenInfantsInFlightsTab(int adults, int children, int infants) {
+
 		waitUntilElementisVisible(By.xpath("//div[@id='traveler-selector-hp-flight']//li/button")).click();
 		sleep(1);
 		List<WebElement> elements = driver
@@ -128,100 +130,145 @@ public class HomePage extends BasePage {
 			if (k == 1) {
 				for (int i = 0; i <= children - 1; i++) {
 					elements.get(k).click();
-				}			
-				// Selecting the Ages of Children				
-				for(int j=0;j<children;j++) {
+				}
+				// Selecting the Ages of Children
+				for (int j = 0; j < children; j++) {
 					sleep(1);
-					Select sel = new Select(driver.findElement(By.xpath("//div[@class='cols-nested children-data gcw-toggles-fields available-for-flights']//select[@id=\"flight-age-select-"+(j+1)+"-hp-flight\"]")));
+					Select sel = new Select(driver.findElement(By.xpath(
+							"//div[@class='cols-nested children-data gcw-toggles-fields available-for-flights']//select[@id=\"flight-age-select-"
+									+ (j + 1) + "-hp-flight\"]")));
 					sel.selectByValue("10");
 				}
 			}
 			/*
 			 * Selecting the Children based on children count
 			 */
-			if(k==2) {
+			if (k == 2) {
 				for (int i = 0; i <= infants - 1; i++) {
 					elements.get(k).click();
 				}
-				// Selecting the Ages of Children				
-				for(int j=0;j<infants;j++) {
+				// Selecting the Ages of Children
+				for (int j = 0; j < infants; j++) {
 					sleep(1);
-					Select sel = new Select(driver.findElement(By.xpath("//select[@class='gcw-storeable gcw-toggles-field-by-value gcw-child-age-select gcw-infant-age-"+(j+1)+"-sa']")));
+					Select sel = new Select(driver.findElement(By.xpath(
+							"//select[@class='gcw-storeable gcw-toggles-field-by-value gcw-child-age-select gcw-infant-age-"
+									+ (j + 1) + "-sa']")));
 					sel.selectByValue("1");
 				}
 			}
-			
+
 		}
 	}
-	
-	
+
 	public void setPreferredAirLine(String preferredAirline) {
-		String advancedOptionsID="flight-advanced-options-hp-flight";
+		String advancedOptionsID = "flight-advanced-options-hp-flight";
 		driver.findElement(By.id(advancedOptionsID)).click();
 		sleep(1);
-		String preferredAirLineID="flight-advanced-preferred-airline-hp-flight";
+		String preferredAirLineID = "flight-advanced-preferred-airline-hp-flight";
 		Select selectAirline = new Select(driver.findElement(By.id(preferredAirLineID)));
 		selectAirline.selectByVisibleText(preferredAirline);
 		driver.findElement(By.id(advancedOptionsID)).click();
 	}
-	
+
 	public void setPreferredClass(String preferredClass) {
-		String advancedOptionsID="flight-advanced-options-hp-flight";
+		String advancedOptionsID = "flight-advanced-options-hp-flight";
 		driver.findElement(By.id(advancedOptionsID)).click();
 		sleep(1);
-		String preferredClassID="flight-advanced-preferred-class-hp-flight";
+		String preferredClassID = "flight-advanced-preferred-class-hp-flight";
 		Select selectAirline = new Select(driver.findElement(By.id(preferredClassID)));
 		selectAirline.selectByVisibleText(preferredClass);
 		sleep(1);
 		driver.findElement(By.id(advancedOptionsID)).click();
 	}
-	
+
 	public void clickHotelsTab() {
 		waitUntilElementisVisible(By.id("tab-hotel-tab-hp")).click();
 		driver.findElement(By.id("hotel-destination-hp-hotel"));
 	}
-	
+
 	public void setDestinationCityForHotels(String city) {
+		driver.findElement(By.id("hotel-destination-hp-hotel")).click();
 		driver.findElement(By.id("hotel-destination-hp-hotel")).sendKeys(city);
 	}
-	
+
 	public void setCheckInDateForHotel(String checkIn) {
 		WebElement checkInElement = driver.findElement(By.id("hotel-checkin-hp-hotel"));
 		checkInElement.sendKeys(checkIn);
 	}
-	
+
 	public void setCheckOutDateForHotel(String checkOut) {
 		WebElement checkOutElement = driver.findElement(By.id("hotel-checkout-hp-hotel"));
 		checkOutElement.sendKeys(checkOut);
 	}
-	
+
 	public void clickOnHotelSearch() {
-		waitUntilElementisClickable(By.xpath("//section[@id='section-hotel-tab-hp']//span[contains(text(),'Search')]//parent::button")).click();
+		waitUntilElementisClickable(
+				By.xpath("//section[@id='section-hotel-tab-hp']//span[contains(text(),'Search')]//parent::button"))
+						.click();
 	}
-	
+
 	public void AddFlightsWithHotel(String city) {
 		driver.findElement(By.id("hotel-add-flight-checkbox-hp-hotel")).click();
 		driver.findElement(By.id("hotel-flight-origin-hp-hotel")).sendKeys(city);
 		clickHotelsTab();// To avoid this obstructing other webElements
 	}
-	
+
 	public boolean errorMessageIfMorethanSixPassengersAreSelected() {
-		List<WebElement> errorElement= driver.findElements(By.xpath("//a[text()='We are only able to book between 1 and 6 travellers. Please adjust the number of travellers for your search.']"));
-		if(errorElement.size()>0) {
+		List<WebElement> errorElement = driver.findElements(By.xpath(
+				"//a[text()='We are only able to book between 1 and 6 travellers. Please adjust the number of travellers for your search.']"));
+		if (errorElement.size() > 0) {
 			return errorElement.get(0).isDisplayed();
-		}else {
+		} else {
 			return false;
-		}	
+		}
 	}
 
 	public void selectHotelsAlongWithFlights(String checkin, String checkOut) {
 		sleep(1);
 		driver.findElement(By.id("flight-add-hotel-checkbox-hp-flight")).click();
-		driver.findElement(By.id("flight-hotel-checkin-hp-flight")).sendKeys(Keys.CONTROL+"a"+Keys.DELETE);
+		driver.findElement(By.id("flight-hotel-checkin-hp-flight")).sendKeys(Keys.CONTROL + "a" + Keys.DELETE);
 		driver.findElement(By.id("flight-hotel-checkin-hp-flight")).sendKeys(checkin);
-		driver.findElement(By.id("flight-hotel-checkout-hp-flight")).sendKeys(Keys.CONTROL+"a"+Keys.DELETE);
+		driver.findElement(By.id("flight-hotel-checkout-hp-flight")).sendKeys(Keys.CONTROL + "a" + Keys.DELETE);
 		driver.findElement(By.id("flight-hotel-checkout-hp-flight")).sendKeys(checkOut);
 		clickFlightstab();
+	}
+
+	public void setAdultsChildrenInHotelssTab(int adults, int children) {
+
+		waitUntilElementisVisible(By.xpath("//form[@id='gcw-hotel-form-hp-hotel']//button[@data-gcw-component='gcw-traveler-amount-select']")).click();
+		sleep(1);
+		List<WebElement> elements = driver
+				.findElements(By.xpath("//*[@id='traveler-selector-hp-hotel']//div/button"));
+		for (int k = 0; k <= elements.size(); k++) {
+			/*
+			 * Selecting the Adults based on adult count
+			 */
+			if (k == 1) {
+				for (int i = 0; i < adults - 2; i++) {// Already 2 Adults will be there by default.
+					elements.get(k).click();
+				}
+			}
+			
+			/*
+			 * Selecting the Children based on children count
+			 */
+			
+			if(children>0) {
+				sleep(1);
+				if (k == 3) {
+					for (int i = 0; i <= children - 1; i++) {
+						elements.get(k).click();
+					}
+					// Selecting the Ages of Children
+					for (int j = 0; j < children; j++) {
+						sleep(1);
+						Select sel = new Select(driver.findElement(By.xpath(
+								"//form[@id='gcw-hotel-form-hp-hotel']//span[text()='Child "+(j+1)+" age']//following-sibling::select")));
+						sel.selectByValue("10");
+					}
+				}	
+			}	
+		}
 	}
 
 }

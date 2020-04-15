@@ -100,7 +100,7 @@ public class SearchFlights_StepDefnition{
 		int intAdults = Integer.parseInt(adults);
 		int intChildren = Integer.parseInt(children);
 		int intInfants = Integer.parseInt(infants);
-		selenium().HOMEPAGE.setAdultsChildrenInfants(intAdults, intChildren,intInfants);
+		selenium().HOMEPAGE.setAdultsChildrenInfantsInFlightsTab(intAdults, intChildren,intInfants);
 	}
 	
 	@When("User sets the preferred Airline as {string}")

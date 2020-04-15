@@ -126,5 +126,4 @@ Scenario: Verify if user is able to select hotels while searching for round trip
 	Then User should be able to navigate to search results page with flights and hotels
 	
 
-	
 

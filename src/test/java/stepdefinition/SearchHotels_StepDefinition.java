@@ -58,5 +58,15 @@ public class SearchHotels_StepDefinition {
 	public void user_provide_flights_data_for_hotel_search(io.cucumber.datatable.DataTable dataTable) {
 		selenium().HOMEPAGE.AddFlightsWithHotel(dataTable.asList().get(0));
 	}
+	
+	@When("User selects multiple adults")
+	public void user_selects_multiple_adults() {
+	   selenium().HOMEPAGE.setAdultsChildrenInHotelssTab(2, 0);
+	}
+
+	@When("User selects multiple adults and multiple children")
+	public void user_selects_multiple_adults_and_multiple_children() {
+		 selenium().HOMEPAGE.setAdultsChildrenInHotelssTab(2, 2);
+	}
 
 }

@@ -6,6 +6,8 @@ import org.openqa.selenium.chrome.ChromeDriver;
 import PageObjects.ObjectsPage;
 import io.cucumber.java.After;
 import io.cucumber.java.Before;
+import io.cucumber.java.en.Then;
+import io.cucumber.java.en.When;
 
 public class common_StepDefinition {
 
@@ -31,5 +33,17 @@ public class common_StepDefinition {
 	@After
 	public void tearDown() {
 		driver.quit();
+	}
+	
+	
+	@When("User Clicks on findout more")
+	public void user_Clicks_on_findout_more() {
+	    
+	}
+
+	@Then("User should be navigated to travel advisories page")
+	public void user_should_be_navigated_to_travel_advisories_page() {
+	    // Write code here that turns the phrase above into concrete actions
+	    throw new io.cucumber.java.PendingException();
 	}
 }
