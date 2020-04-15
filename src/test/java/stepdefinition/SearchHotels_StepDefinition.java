@@ -61,12 +61,17 @@ public class SearchHotels_StepDefinition {
 	
 	@When("User selects multiple adults")
 	public void user_selects_multiple_adults() {
-	   selenium().HOMEPAGE.setAdultsChildrenInHotelssTab(2, 0);
+	   selenium().HOMEPAGE.setPassengersInHotelsTab(2, 0);
 	}
 
 	@When("User selects multiple adults and multiple children")
 	public void user_selects_multiple_adults_and_multiple_children() {
-		 selenium().HOMEPAGE.setAdultsChildrenInHotelssTab(2, 2);
+		 selenium().HOMEPAGE.setPassengersInHotelsTab(2, 2);
+	}
+	
+	@When("User selects multiple rooms for multiple people")
+	public void user_selects_multiple_rooms_for_multiple_people() {
+		selenium().HOMEPAGE.setPassengersInHotelsTab(2, 2, 2);
 	}
 
 }

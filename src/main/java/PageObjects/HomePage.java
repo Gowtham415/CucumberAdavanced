@@ -68,7 +68,7 @@ public class HomePage extends BasePage {
 		action.moveToElement(e).click().build().perform();
 	}
 
-	public void setAdultsAndChildren(int adults, int children) {
+	public void setPassengerDetailsInFlightsTab(int adults, int children) {
 		waitUntilElementisVisible(By.xpath("//div[@id='traveler-selector-hp-flight']//li/button")).click();
 		sleep(1);
 		List<WebElement> elements = driver
@@ -108,7 +108,7 @@ public class HomePage extends BasePage {
 		clickFlightstab();// To ensure other elements are visible
 	}
 
-	public void setAdultsChildrenInfantsInFlightsTab(int adults, int children, int infants) {
+	public void setPassengerDetailsInFlightsTab(int adults, int children, int infants) {
 
 		waitUntilElementisVisible(By.xpath("//div[@id='traveler-selector-hp-flight']//li/button")).click();
 		sleep(1);
@@ -233,7 +233,7 @@ public class HomePage extends BasePage {
 		clickFlightstab();
 	}
 
-	public void setAdultsChildrenInHotelssTab(int adults, int children) {
+	public void setPassengersInHotelsTab(int adults, int children) {
 
 		waitUntilElementisVisible(By.xpath("//form[@id='gcw-hotel-form-hp-hotel']//button[@data-gcw-component='gcw-traveler-amount-select']")).click();
 		sleep(1);
@@ -268,6 +268,50 @@ public class HomePage extends BasePage {
 					}
 				}	
 			}	
+		}
+	}
+	
+	public void setPassengersInHotelsTab(int adults, int children,int rooms) {
+
+		waitUntilElementisVisible(By.xpath("//form[@id='gcw-hotel-form-hp-hotel']//button[@data-gcw-component='gcw-traveler-amount-select']")).click();
+		sleep(1);
+		List<WebElement> elements = driver
+				.findElements(By.xpath("//*[@id='traveler-selector-hp-hotel']//div/button"));
+		for (int k = 0; k <= elements.size(); k++) {
+			/*
+			 * Selecting the Adults based on adult count
+			 */
+			if (k == 1) {
+				for (int i = 0; i < adults - 2; i++) {// Already 2 Adults will be there by default.
+					elements.get(k).click();
+				}
+			}
+			
+			/*
+			 * Selecting the Children based on children count
+			 */
+			
+			if(children>0) {
+				sleep(1);
+				if (k == 3) {
+					for (int i = 0; i <= children - 1; i++) {
+						elements.get(k).click();
+					}
+					// Selecting the Ages of Children
+					for (int j = 0; j < children; j++) {
+						sleep(1);
+						Select sel = new Select(driver.findElement(By.xpath(
+								"//form[@id='gcw-hotel-form-hp-hotel']//span[text()='Child "+(j+1)+" age']//following-sibling::select")));
+						sel.selectByValue("10");
+					}
+				}	
+			}	
+		}
+		
+		if(rooms>1) {
+			for(int m=0;m<rooms-1;m++) {
+				driver.findElement(By.xpath("//form[@id='gcw-hotel-form-hp-hotel']//a[text()='Add another room']")).click();		
+			}
 		}
 	}
 

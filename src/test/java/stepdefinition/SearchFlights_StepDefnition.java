@@ -92,7 +92,7 @@ public class SearchFlights_StepDefnition{
 	
 	@When("User selects multiple adults with children")
 	public void user_selects_multiple_adults_with_children() {
-		selenium().HOMEPAGE.setAdultsAndChildren(3, 2);
+		selenium().HOMEPAGE.setPassengerDetailsInFlightsTab(3, 2);
 	}
 	
 	@When("User select adults {string} , children {string} and infants {string}")
@@ -100,7 +100,7 @@ public class SearchFlights_StepDefnition{
 		int intAdults = Integer.parseInt(adults);
 		int intChildren = Integer.parseInt(children);
 		int intInfants = Integer.parseInt(infants);
-		selenium().HOMEPAGE.setAdultsChildrenInfantsInFlightsTab(intAdults, intChildren,intInfants);
+		selenium().HOMEPAGE.setPassengerDetailsInFlightsTab(intAdults, intChildren,intInfants);
 	}
 	
 	@When("User sets the preferred Airline as {string}")

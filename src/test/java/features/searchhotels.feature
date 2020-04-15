@@ -38,7 +38,7 @@ Scenario: Verify if user is able to searhc for flights with multiple adults
 	Then User should be able to navigate to search results page for hotels
 	
 @FULLRUN
-Scenario: Verify if user is able to searhc for flights with multiple adults and multiple children
+Scenario: Verify if user is able to search for flights with multiple adults and multiple children
 	Given Click on Hotels tab
 	When User provides city to be searched for hotels
 		|Hyderabad|
@@ -48,7 +48,16 @@ Scenario: Verify if user is able to searhc for flights with multiple adults and 
 	And User click on search hotel button
 	Then User should be able to navigate to search results page for hotels
 	
-	
+@FULLRUN
+Scenario: verify if user is able to search for multiple rooms in hotels tab
+	Given Click on Hotels tab
+	When User provides city to be searched for hotels
+		|Hyderabad|
+	And User provides checkin date "29/04/2020" in to hotel 
+	And User provides checkout date "05/05/2020" from the hotel
+	And User selects multiple rooms for multiple people
+	And User click on search hotel button
+	Then User should be able to navigate to search results page for hotels
 	
 	
 	
