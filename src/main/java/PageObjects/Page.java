@@ -11,7 +11,7 @@ public class Page {
 	
 	public Page(WebDriver driver) {
 		this.driver = driver;
-		this.driverWait = new WebDriverWait(this.driver, 10);
+		this.driverWait = new WebDriverWait(this.driver, 15);
 		this.action = new Actions(driver);
 	}
 	

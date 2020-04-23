@@ -333,7 +333,31 @@ public class HomePage extends BasePage {
 		}catch(Exception e) {
 			return false;
 		}
-		
+	}
+	
+	public void setOriginAndDestinationCitiesInPackageTab(String origin,String destination) {
+		waitUntilElementisVisible(By.xpath("//input[@id='package-origin-hp-package']")).click();
+		waitUntilElementisVisible(By.xpath("//input[@id='package-origin-hp-package']")).sendKeys(origin);
+		waitUntilElementisVisible(By.xpath("//input[@id='package-destination-hp-package']")).click();
+		waitUntilElementisVisible(By.xpath("//input[@id='package-destination-hp-package']")).sendKeys(destination);
+		sleep(1);
+	}
+	
+	public void setDepartureAndReturnDateInPackageTab(String departureDate,String returnDate) {
+		waitUntilElementisVisible(By.id("package-departing-hp-package")).click();
+		waitUntilElementisVisible(By.id("package-departing-hp-package")).sendKeys(departureDate);
+		waitUntilElementisVisible(By.id("package-returning-hp-package")).click();
+		waitUntilElementisVisible(By.id("package-returning-hp-package")).sendKeys(Keys.CONTROL+"a"+Keys.DELETE);
+		waitUntilElementisVisible(By.id("package-returning-hp-package")).sendKeys(returnDate);
+		sleep(1);
+	}
+	
+	public void clickSubmitOnPackageTab() {
+		waitUntilElementisClickable(By.id("search-button-hp-package")).click();
+	}
+	
+	public void selectDirectFlightsCheckBoxInPackageTab() {
+		waitUntilElementisVisible(By.id("packageDirectFlight-hp-package")).click();
 	}
 
 }
