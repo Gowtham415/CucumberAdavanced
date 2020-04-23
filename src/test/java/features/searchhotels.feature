@@ -27,7 +27,7 @@ Scenario: User is able to search for Hotels with flights
 	Then User should be able to navigate to search results page for hotels
 
 @FULLRUN
-Scenario: Verify if user is able to searhc for flights with multiple adults
+Scenario: Verify if user is able to search for flights with multiple adults
 	Given Click on Hotels tab
 	When User provides city to be searched for hotels
 		|Hyderabad|
@@ -58,6 +58,7 @@ Scenario: verify if user is able to search for multiple rooms in hotels tab
 	And User selects multiple rooms for multiple people
 	And User click on search hotel button
 	Then User should be able to navigate to search results page for hotels
+	
 	
 	
 	

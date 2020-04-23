@@ -314,5 +314,26 @@ public class HomePage extends BasePage {
 			}
 		}
 	}
+	
+	
+	
+	/*
+	 * Flights and Hotels Search
+	 */
+	
+	public void clickFlightsAndHotelsTab() {
+		waitUntilElementisVisible(By.xpath("//button[@id='tab-package-tab-hp']")).click();
+	}
+	
+	
+	public boolean isFlightsAndHotelsVisible() {
+		try {
+			waitUntilElementisVisible(By.xpath("//input[@id='package-origin-hp-package']"));
+			return true;
+		}catch(Exception e) {
+			return false;
+		}
+		
+	}
 
 }
