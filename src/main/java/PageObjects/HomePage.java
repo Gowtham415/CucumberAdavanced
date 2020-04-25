@@ -359,5 +359,25 @@ public class HomePage extends BasePage {
 	public void selectDirectFlightsCheckBoxInPackageTab() {
 		waitUntilElementisVisible(By.id("packageDirectFlight-hp-package")).click();
 	}
+	
+	
+	public void selectPartialHotelBookingCheckBox() {
+		driver.findElement(By.id("partialHotelBooking-hp-package")).click();
+		sleep(1);
+	}
+	
+	public void setChecInAndCheckOutDatesForPartialHotelBooking(String checkinDate, String checkoutDate) {
+		waitUntilElementisVisible(By.id("package-checkin-hp-package")).click();
+		waitUntilElementisVisible(By.id("package-checkin-hp-package")).sendKeys(Keys.CONTROL+"a"+Keys.DELETE);
+		waitUntilElementisVisible(By.id("package-checkin-hp-package")).sendKeys(checkinDate);
+		waitUntilElementisVisible(By.id("package-checkout-hp-package")).click();
+		waitUntilElementisVisible(By.id("package-checkout-hp-package")).sendKeys(Keys.CONTROL+"a"+Keys.DELETE);
+		waitUntilElementisVisible(By.id("package-checkout-hp-package")).sendKeys(checkoutDate);
+	}
+	
+	
+	public String errorMessageForPartialHotelBookinginPackageTab() {
+		return waitUntilElementisVisible(By.xpath("//form[@id='gcw-packages-form-hp-package']//a[contains(text(),'check-in and check-out dates must fall within')]")).getText();
+	}
 
 }
