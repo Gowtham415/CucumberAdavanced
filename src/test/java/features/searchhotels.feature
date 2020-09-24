@@ -63,7 +63,7 @@ Scenario: verify if user is able to search for multiple rooms in hotels tab
 Scenario: Verify if user is able to search for an internation hotel in the hotels tab.
 Given Click on Hotels tab
 	When User provides city to be searched for hotels
-		|Barcelone|
+		|Barcelona|
 	And User provides checkin date "29/05/2020" in to hotel 
 	And User provides checkout date "05/06/2020" from the hotel
 	And User click on search hotel button

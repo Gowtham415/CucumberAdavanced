@@ -16,7 +16,7 @@ public class common_StepDefinition {
 
 	public common_StepDefinition(DataVariableClass data) {
 		this.COMMON_DATA = data;
-		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\Drivers\\chromedriver.exe");
+		System.setProperty("webdriver.chrome.driver", System.getProperty("user.dir") + "\\chromedriver.exe");
 		COMMON_DATA.driver = new ChromeDriver();// Driver variable is initialized and stored in DataVariable class
 		this.driver = COMMON_DATA.driver;
 	}
